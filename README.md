@@ -72,17 +72,19 @@ $ ip link delete vde0
 
 * edit the configuration file `.local/share/lxc/bb1/config`
 
-        comment out the default networking options
+    comment out the default networking options
 ```
      #lxc.net.0.type = veth
      #lxc.net.0.link = lxcbr0
      #lxc.net.0.flags = up
 ```
-        uncomment: disable apparmor (if needed) 
+&nbsp; &nbsp; &nbsp; &nbsp; uncomment: disable apparmor (if needed) 
 ```
      lxc.apparmor.profile = unconfined
+
 ```
-        mount `/dev/net/tun` and the shared directory `/tmp/vde`
+
+&nbsp; &nbsp; &nbsp; &nbsp; mount `/dev/net/tun` and the shared directory `/tmp/vde`
 ```
      lxc.mount.entry = /dev/net/tun dev/net/tun none bind,create=file
      lxc.mount.entry = /tmp/vde vde none rw,bind,create=dir
