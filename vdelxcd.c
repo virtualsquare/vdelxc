@@ -285,8 +285,6 @@ int main(int argc, char *argv[]) {
 	if (argc != optind)
 		usage(progname);
 
-	mypid = getpid();
-
 	if (conffile && vdeauth_parsercfile(conffile) < 0)
 		panic("load rc file");
 
@@ -301,6 +299,11 @@ int main(int argc, char *argv[]) {
   setsignals();
   if (args.daemon && daemon(0, 0))
     panic("daemon");
+
+	mypid = getpid();
+
+	if (args.pidfile)
+		save_pidfile(args.pidfile, fdcwd);
 
 	startlog(progname, args.daemon != NULL, args.verbose != NULL);
 
