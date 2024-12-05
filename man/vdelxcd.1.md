@@ -94,7 +94,8 @@ In case of nested VNL (like those of libvdeplug\_agno or libvdeplug\_vlan) all t
 
 # EXAMPLES
 
-The following configuration file permits to use any vxvde network, the default network is vxvde://234.0.0.1.
+The following configuration file permits to use tap0 or
+any vxvde network, the default network is vxvde://234.0.0.1.
 The usage of any other plugin is forbidden.
 ```
 default    vxvde://234.0.0.1
@@ -113,6 +114,7 @@ default    vxvde://234.0.0.1
 allow      tap://tap0
 pfxallow   vxvde://
 pfxallow   vlan://
+pfxallow   agno://
 pfxallow   vxvde://
 ```
 
